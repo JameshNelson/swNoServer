@@ -4,9 +4,22 @@ angular.module('swApp')
 
     $scope.getCharacter = function(){
       swService.getCharacter().then(function(response){
-        console.log(response)
-        $scope.characters = response.data
+        console.log(response);
+        $scope.characters = response.data;
+        swService.planet = response.data.homeworld;
+        return response.data;
+
       })
     }
-    $scope.getCharacter();
+
+    //  $scope.getPlanet = function(){
+    //     swService.getPlanet().then(function(response){
+    //      console.log(response);
+    //       $scope.planet = response.data;
+    //     })
+    //   }
+
+      $scope.getCharacter();
+      // $scope.getPlanet();
+
 })
